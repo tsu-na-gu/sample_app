@@ -36,3 +36,6 @@
 
 # Ignore db test files
 db/test.*
+
+# Ignore RubyMine setting
+.idea/
