@@ -90,6 +90,7 @@ footer ul li {
   margin-left: 15px;
 }
 
+
 @media (max-width: 800px) {
   footer {
     small {
@@ -153,7 +154,7 @@ input, textarea, select, .inditable-input {
 }
 
 input {
-  height: auto !important;
+  height: 2.5em !important;
 }
 /* miscellanous */
 .debug_dump {
@@ -177,6 +178,20 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 20px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
 
 /* Dropdown menu */
