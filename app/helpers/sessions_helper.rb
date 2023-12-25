@@ -25,6 +25,15 @@ module SessionsHelper
     end
   end
 
+  def current_user?(user)
+    user && user == current_user
+  end
+
+  # アクセスしようとしたURLを保存する
+  def store_location
+    session[:fowarding_url] = request.original_url if request.get?
+  end
+
   # ユーザーがログインしていればtrue, その他ならfalseを返す。
   def logged_in?
     !current_user.nil?
@@ -32,8 +41,8 @@ module SessionsHelper
 
   def forget(user)
     user.forget
-    cookies.delete(:user_id)
-    cookies.delete(:remember_token)
+    cookies.delete :user_id
+    cookies.delete :remember_token
   end
 
   def log_out

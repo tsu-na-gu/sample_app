@@ -22,6 +22,18 @@ class InvalidPasswordTest < UsersLogin
     assert flash.empty?
   end
 end
+class RememberMeTest < UsersLogin
+  test "login with remembering" do
+    log_in_with_param(@user, remember_me: '1')
+    assert_not cookies[:remember_token].blank?
+  end
+
+  test "login without remembering" do
+    log_in_with_param(@user, remember_me: '1')
+    log_in_with_param(@user, remember_me: '0')
+    assert cookies[:remember_token].blank?
+  end
+end
 
 class Valid_Login < UsersLogin
   def setup
