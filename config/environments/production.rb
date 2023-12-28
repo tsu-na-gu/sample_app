@@ -2,7 +2,17 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.action_mailer.raise_dilivery_errors = true
+  config.action_mailer.dlivery_method = :smpt
+  host = 'https://ruby-on-rails-tutorial-sample-app-bu57.onrender.com'
+  ActionMailer::Base.smtp_settings = {
+    :port       => 587,
+    :address     => 'smtp.milgun.org',
+    :user_name   => ENV['MAILGUN_SMTP_LOGIN'],
+    :password    => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain      => host,
+    :authentication => plain,
+  }
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
