@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+
+    @micropost = @user.microposts.build
+    @microposts = @user.microposts.paginate(page: params[:page])
     redirect_to root_url and return unless logged_in?
   end
   def new
@@ -47,14 +50,7 @@ class UsersController < ApplicationController
 
   # beforeフィルタ
 
-  # ログイン済みのユーザーかどうか確認
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:dnager] = "Please log in."
-      redirect_to login_url, status: :see_other
-    end
-  end
+
 
   # 正しいユーザーかどうか確認
   def correct_user
