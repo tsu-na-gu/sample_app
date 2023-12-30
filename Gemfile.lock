@@ -290,7 +290,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations
-  aws-sdk-s3 (= 1.114.0)
+  aws-sdk-s3
   bcrypt (= 3.1.20)
   bootsnap
   bootstrap-sass (= 3.4.1)

@@ -59,7 +59,7 @@ gem 'active_storage_validations'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 group :production do
-  gem "aws-sdk-s3", "1.114.0", require: false
+  gem "aws-sdk-s3"
 end
 
 group :development, :test do
