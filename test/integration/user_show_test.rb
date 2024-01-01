@@ -19,4 +19,11 @@ class UserShowTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template 'users/show'
   end
+
+  test "should be display the follow stats in show" do
+    log_in_with_param(@activated_user)
+    get user_path(@activated_user)
+    assert_select 'strong#following'
+    assert_select 'strong#followers'
+  end
 end

@@ -85,3 +85,11 @@ class ImageUploadTest < MicropostsInterface
   end
 end
 
+class FollowStatsTest < MicropostsInterface
+  test "should be display the follow stats in home" do
+    get root_path
+    assert_select 'strong#following'
+    assert_select 'strong#followers'
+  end
+end
+
